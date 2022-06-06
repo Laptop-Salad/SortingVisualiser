@@ -1,5 +1,10 @@
-var n = 100;
+var arraySize;
 var arr = [];
+
+document.addEventListener("DOMContentLoaded", function(event) {
+    arraySize = document.getElementById("sizeSlider").value;
+    createArray();
+})
 
 function generateDivs() {
     for (var i in arr) {
@@ -18,11 +23,18 @@ function removeDivs() {
         elem.remove();
     }
 
+    arr = []
+
     createArray();
 }
 
+function sizeChange() {
+    arraySize = document.getElementById("sizeSlider").value;
+    removeDivs();
+}
+
 function createArray() {
-    for (var i = 0; i < n; i++) {
+    for (var i = 0; i < arraySize; i++) {
         const randomNum = Math.floor(Math.random() * 100) + 1;;
         arr[i] = randomNum;
     }

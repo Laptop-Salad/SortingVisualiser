@@ -9,10 +9,15 @@
     <script src="app.js"></script>
     <title>Sorting Visualiser</title>
 </head>
-<body onload="createArray()" class="bg-dark">
+<body class="bg-dark">
 
-    <div>
-        <button id="randomiseBtn" onclick="removeDivs()">Randomise</button>
+    <div class="p-1 d-flex flex-row">
+        <button id="randomiseBtn" onclick="removeDivs()" class="m-1">Randomise</button>
+
+        <div class="m-2">
+            <label for="sizeSlider" class="text-light">Array Size</label>
+            <input type="range" min="5" max="100" value="100" id="sizeSlider" oninput="sizeChange()">
+        </div>  
     </div>
 
     <div id="graphArea" class="d-flex flex-row">
