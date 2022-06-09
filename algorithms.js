@@ -3,9 +3,6 @@
 function swapUI(a, b) {
     document.getElementById(a).style.height = ((bars[b] * 8) + 10)+"px";
     document.getElementById(b).style.height = ((bars[a] * 8) + 10)+"px";
-
-    // document.getElementById(a).innerHTML = arr[b];
-    // document.getElementById(b).innerHTML = arr[a];
 }
 
 // To swap two elements in the bars array
@@ -37,7 +34,7 @@ async function selectionSort() {
         if (smallest !== i) {
             await sleep(1000);
             swapUI(i, smallest);
-            swap(i, smallest);
+            swap(smallest, i);
         }
     }
 
@@ -45,8 +42,29 @@ async function selectionSort() {
     switchElems(false);
 }
 
-function bubbleSort() {
+async function bubbleSort() {
     console.log("bubbleSort()");
+
+    var swaps = -1;
+    let swapped;
+
+    do {
+        swaps = false;
+        console.log("EXITED FOR LOOPS");
+
+        for (var i = 0; i < bars.length -1; i++) {
+            if (bars[i] > bars[i+1]) {
+                console.log(i, i+1);
+                await sleep(1000);
+                swapUI(i, i+1);
+                swap(i, i+1);
+                swaps = true;
+
+            }
+        }
+    } while (swaps);
+    // Completed sorting elems so enable inputs
+    switchElems(false);
 }
 
 function mergeSort() {

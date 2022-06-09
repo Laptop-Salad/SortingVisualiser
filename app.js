@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 })
 
 function switchElems(isEnabled) {
+    console.log("Switch elems");
     for (input in inputs) {
         document.getElementById(inputs[input]).disabled = isEnabled;
     }
@@ -29,8 +30,6 @@ function callSort() {
             mergeSort();
             break;
     }
-
-    console.log("End");
 }
 
 function generateDivs() {
