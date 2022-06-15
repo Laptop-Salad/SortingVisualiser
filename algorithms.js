@@ -38,7 +38,7 @@ async function selectionSort() {
         // If the first element of the unsorted portion is not the smallest
         if (smallest !== i) {
             // Delay by 1s
-            await sleep(1000);
+            await sleep(speed);
             // Swap the elements on the UI and in bars array
             swapUI(i, smallest);
             swap(smallest, i);
@@ -64,7 +64,7 @@ async function bubbleSort() {
             // Get a pair and if the next element is greater than the previous
             if (bars[i] > bars[i+1]) {
                 // Delay by 1s
-                await sleep(1000);
+                await sleep(speed);
 
                 // Swap the elements on the UI and in bars array
                 swapUI(i, i+1);

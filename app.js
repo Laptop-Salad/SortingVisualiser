@@ -1,5 +1,6 @@
 // Initialise values
 let arraySize; // Keeps track of sizeSlider
+let speed; // Keeps track of speedSlider
 let bars = []; // Array of sizes of bars
 const inputs = ["algoSelection", "sortBtn", "sizeSlider", "randomiseBtn"]; // Array of elements to disabled while sorting
 
@@ -7,6 +8,7 @@ const inputs = ["algoSelection", "sortBtn", "sizeSlider", "randomiseBtn"]; // Ar
 document.addEventListener("DOMContentLoaded", function(event) {
     arraySize = document.getElementById("sizeSlider").value;
     createArray();
+    setSpeed();
 })
 
 // To disable/enable certain elements in inputs array
@@ -14,7 +16,11 @@ function switchElems(isEnabled) {
     for (let input in inputs) {
         document.getElementById(inputs[input]).disabled = isEnabled;
     }
-} 
+}
+
+function setSpeed() {
+    speed = document.getElementById("speedSlider").value;
+}
 
 function callSort() {
     // Disable certain elements
@@ -34,6 +40,8 @@ function callSort() {
             break;
     }
 }
+
+
 
 // Clear graphArea
 function removeDivs() {
