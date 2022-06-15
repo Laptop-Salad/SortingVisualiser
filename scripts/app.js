@@ -15,9 +15,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
 function switchElems(isEnabled) {
     for (let input in inputs) {
         document.getElementById(inputs[input]).disabled = isEnabled;
-    }
+    } 
 }
 
+// Called when speedSlider is changed
 function setSpeed() {
     speed = document.getElementById("speedSlider").value;
 }
@@ -41,8 +42,6 @@ function callSort() {
     }
 }
 
-
-
 // Clear graphArea
 function removeDivs() {
     for (let i in bars) {
@@ -62,7 +61,7 @@ function generateDivs() {
         var newElem = document.createElement('div');
 
         newElem.id = i;
-        newElem.className = "bg-light w-25 m-1";
+        newElem.className = "bg-light w-25 m-1 rounded-bottom";
 
         // Set height based on generated number
         var divHeight = (bars[i]);

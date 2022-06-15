@@ -1,25 +1,3 @@
-// To swap two bars on the UI
-// A and B being the ID of the two bars to swap
-function swapUI(a, b) {
-    document.getElementById(a).style.height = (bars[b])+"px";
-    document.getElementById(b).style.height = (bars[a])+"px";
-}
-
-// To swap two elements in the bars array
-// A and B being the ID of the two bars to swap
-function swap(a, b) {
-    const one = bars[a];
-    const two = bars[b];
-
-    bars[a] = two;
-    bars[b] = one; 
-} 
-
-// Delay code by ms
-function sleep(ms) {
-    return new Promise(resolveFunc => setTimeout(resolveFunc, ms));
-}
-
 // Selection sort algorithm
 async function selectionSort() {
 
@@ -38,14 +16,21 @@ async function selectionSort() {
         // If the first element of the unsorted portion is not the smallest
         if (smallest !== i) {
             // Delay by 1s
+            swapping(smallest, i);
             await sleep(speed);
+
             // Swap the elements on the UI and in bars array
             swapUI(i, smallest);
             swap(smallest, i);
+
+            // Return swapped elements to their original colour
+            returnColour(smallest);
+            returnColour(i);
         }
     }
 
     // Completed sorting so enable inputs
+    sorted();
     switchElems(false);
 }
 
@@ -64,6 +49,7 @@ async function bubbleSort() {
             // Get a pair and if the next element is greater than the previous
             if (bars[i] > bars[i+1]) {
                 // Delay by 1s
+                swapping(i, i+1);
                 await sleep(speed);
 
                 // Swap the elements on the UI and in bars array
@@ -71,10 +57,13 @@ async function bubbleSort() {
                 swap(i, i+1);
                 swaps = true;
 
+                returnColour(i);
+                returnColour(i+1);
             }
         }
     } while (swaps);
 
     // Completed sorting elems so enable inputs
+    sorted();
     switchElems(false);
 }
