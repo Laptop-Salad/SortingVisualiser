@@ -1,4 +1,6 @@
-// Selection sort algorithm
+/*
+    @desc The Selection Sort algorithm
+*/
 async function selectionSort() {
 
     // For each element, traverse through the bars array once
@@ -15,7 +17,6 @@ async function selectionSort() {
 
         // If the first element of the unsorted portion is not the smallest
         if (smallest !== i) {
-            // Delay by 1s
             swapping(smallest, i);
             await sleep(speed);
 
@@ -29,12 +30,14 @@ async function selectionSort() {
         }
     }
 
-    // Completed sorting so enable inputs
+    // Completed sorting
     sorted();
     switchElems(false);
 }
 
-// Bubble sort algorihtm
+/*
+    @desc The Bubble Sort algorihthm
+*/
 async function bubbleSort() {
     // Keep track of amount of swaps
     let swaps = -1;
@@ -48,7 +51,6 @@ async function bubbleSort() {
 
             // Get a pair and if the next element is greater than the previous
             if (bars[i] > bars[i+1]) {
-                // Delay by 1s
                 swapping(i, i+1);
                 await sleep(speed);
 
@@ -63,7 +65,7 @@ async function bubbleSort() {
         }
     } while (swaps);
 
-    // Completed sorting elems so enable inputs
+    // Completed sorting
     sorted();
     switchElems(false);
 }

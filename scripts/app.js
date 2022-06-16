@@ -4,25 +4,35 @@ let speed; // Keeps track of speedSlider
 let bars = []; // Array of sizes of bars
 const inputs = ["algoSelection", "sortBtn", "sizeSlider", "randomiseBtn"]; // Array of elements to disabled while sorting
 
-// Create initial array
+/*
+    @desc Sets up initial array and sets speed
+*/
 document.addEventListener("DOMContentLoaded", function(event) {
     arraySize = document.getElementById("sizeSlider").value;
     createArray();
     setSpeed();
 })
 
-// To disable/enable certain elements in inputs array
+/*
+    @desc Disables/Enables elements in inputs[] before/after sorting
+*/
 function switchElems(isEnabled) {
     for (let input in inputs) {
         document.getElementById(inputs[input]).disabled = isEnabled;
     } 
 }
 
-// Called when speedSlider is changed
+/*
+    @desc Changes the speed variable
+*/
 function setSpeed() {
     speed = document.getElementById("speedSlider").value;
 }
 
+/*
+    @desc Decides what sorting algorithm to use based on
+    the option selected in algoSelection dropdown
+*/
 function callSort() {
     // Disable certain elements
     switchElems(true);
@@ -36,13 +46,13 @@ function callSort() {
         case "2":
             bubbleSort();
             break;
-        case "3":
-            callMergeSort();
-            break;
     }
 }
 
-// Clear graphArea
+/*
+  @desc Deletes all the divs within graphArea and calls createArray()
+  to generate a new set of divs  
+*/
 function removeDivs() {
     for (let i in bars) {
         var elem = document.getElementById(i);
@@ -55,7 +65,9 @@ function removeDivs() {
     createArray();
 }
 
-// To generate bar elements on the UI
+/*
+    @desc Generates divs to the UI based on height in bars[]
+*/
 function generateDivs() {
     for (let i in bars) {
         var newElem = document.createElement('div');
@@ -72,7 +84,9 @@ function generateDivs() {
     }
 }
 
-// To generate array of random elements
+/*
+    @desc Generates an array of random elements and stores in bars[]
+*/
 function createArray() {
     arraySize = document.getElementById("sizeSlider").value;
     // Generate array of size arraySize
