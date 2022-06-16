@@ -1,16 +1,11 @@
-/* 
-    @desc To swap two bars on the UI
-    @param a and b, The id's of the elements
-*/
+// Swap two elems on UI
 function swapUI(a, b) {
+    console.log("Swapped", bars[a], bars[b]);
     document.getElementById(a).style.height = (bars[b])+"px";
     document.getElementById(b).style.height = (bars[a])+"px";
 }
 
-/* 
-    @desc To swap two elements in the bars array
-    @param a and b, the id of the elements
-*/
+// Swap two elems
 function swap(a, b) {
     const one = bars[a];
     const two = bars[b];
@@ -19,19 +14,12 @@ function swap(a, b) {
     bars[b] = one; 
 } 
 
-/* 
-    @desc Delay code by ms
-    @param ms, time to delay
-
-*/
+// Delay code
 function sleep(ms) {
     return new Promise(resolveFunc => setTimeout(resolveFunc, ms));
 }
 
-/*
-    @desc colours each bar green in order as an animation to show
-    that sorting is complete
-*/
+// Animation to show that sorting is complete
 async function sorted() {
     for (i in bars) {
         await sleep(10);
@@ -41,10 +29,7 @@ async function sorted() {
     }
 }
 
-/* 
-    @desc Highlights two elements that are to be swapped
-    @param a and b, The id's of the elements
-*/
+//Highlights two elements that are to be swapped
 function swapping(a, b) {
     let elemA = document.getElementById(a);
     let elemB = document.getElementById(b);
@@ -56,10 +41,7 @@ function swapping(a, b) {
     elemB.classList.add("bg-warning");
 }
 
-/* 
-    @desc To return an element to its original colour
-    @param a, The id of the element
-*/
+//To return an element to its original colour
 function returnColour(a) {
     let elemA = document.getElementById(a);
     elemA.classList.remove("bg-warning");

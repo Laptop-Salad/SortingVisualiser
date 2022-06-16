@@ -1,6 +1,3 @@
-/*
-    @desc The Selection Sort algorithm
-*/
 async function selectionSort() {
 
     // For each element, traverse through the bars array once
@@ -35,9 +32,6 @@ async function selectionSort() {
     switchElems(false);
 }
 
-/*
-    @desc The Bubble Sort algorihthm
-*/
 async function bubbleSort() {
     // Keep track of amount of swaps
     let swaps = -1;
@@ -69,3 +63,5 @@ async function bubbleSort() {
     sorted();
     switchElems(false);
 }
+
+
