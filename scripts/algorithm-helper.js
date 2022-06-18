@@ -1,7 +1,5 @@
 // Swap two elems on UI
 function swapUI(indexA, indexB) {
-    console.log("Swapped", bars[indexA], bars[indexB]);
-    console.log("Swapped", indexA, indexB);
     document.getElementById(indexA).style.height = (bars[indexB])+"px";
     document.getElementById(indexB).style.height = (bars[indexA])+"px";
 }
