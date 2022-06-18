@@ -13,9 +13,22 @@ document.addEventListener("DOMContentLoaded", function(event) {
 })
 
 // Disables/Enables elements in inputs[] before/after sorting
-function switchElems(isEnabled) {
+function switchElems(disable) {
     for (let input in inputs) {
-        document.getElementById(inputs[input]).disabled = isEnabled;
+        let elem = document.getElementById(inputs[input]);
+        elem.disabled = disable;
+
+        if (disable) {
+            if (input == 1 || input == 3) {
+                elem.classList.remove("bg-dark");
+                elem.classList.add("bg-secondary");
+            }
+        } else {
+            if (input == 1 || input == 3) {
+                elem.classList.remove("bg-secondary");
+                elem.classList.add("bg-dark");
+            }     
+        } 
     } 
 }
 
