@@ -15,7 +15,10 @@ async function selectionSort() {
         // If the first element of the unsorted portion is not the smallest
         if (smallest !== i) {
             swapping(smallest, i);
-            await sleep(speed);
+
+            if (speed !== 0) {
+                await sleep(speed);
+            }
 
             // Swap the elements on the UI and in bars array
             swapUI(i, smallest);
@@ -46,7 +49,10 @@ async function bubbleSort() {
             // Get a pair and if the next element is greater than the previous
             if (bars[i] > bars[i+1]) {
                 swapping(i, i+1);
-                await sleep(speed);
+
+                if (speed !== 0) {
+                    await sleep(speed);
+                }
 
                 // Swap the elements on the UI and in bars array
                 swapUI(i, i+1);

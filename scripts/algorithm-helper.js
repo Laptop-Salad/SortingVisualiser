@@ -26,6 +26,11 @@ async function sorted() {
         elem.classList.remove("bg-light");
         elem.classList.add("bg-success");
     }
+
+    // If instant sort was turned on
+    if (speed == 0) {
+        instantSort();
+    }
 }
 
 
@@ -56,7 +61,10 @@ function swapping(a, b) {
 // To visualise sorting after sorting array
 async function postSet(index, val) {
     for (let i = 0; i < index.length; i++) {
-        await sleep(speed);
+
+        if (speed !== 0) {
+            await sleep(speed);
+        }
         await setBar(index[i], val[i]);
     }
 

@@ -32,6 +32,21 @@ function switchElems(disable) {
     } 
 }
 
+// To toggle instant sort
+function instantSort() {
+    let elem = document.getElementById("instantSort");
+
+    if (speed != 0) {
+        elem.classList.remove("bg-dark");
+        elem.classList.add("bg-light");
+        speed = 0;
+    } else {
+        elem.classList.remove("bg-light");
+        elem.classList.add("bg-dark");
+        setSpeed();       
+    }
+}
+
 // Changes the speed variable
 function setSpeed() {
     speed = document.getElementById("speedSlider").value;
@@ -55,8 +70,7 @@ function callSort() {
             mergeSort(bars, 0, bars.length - 1);
             postSet(setId, setVal);
             switchElems(false);
-            break;
-            
+            break;      
     }
 }
 
