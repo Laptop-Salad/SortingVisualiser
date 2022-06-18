@@ -104,7 +104,7 @@ function generateDivs() {
     }
 }
 
-
+// Creates an array of random numbers of arraySize size
 function createArray() {
     arraySize = document.getElementById("sizeSlider").value;
     // Generate array of size arraySize

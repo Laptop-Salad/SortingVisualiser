@@ -20,12 +20,12 @@
 
         <div class="m-2">
             <label for="sizeSlider" class="text-light">Array Size</label>
-            <input type="range" min="5" max="100" value="100" id="sizeSlider" oninput="removeDivs()">
+            <input type="range" min="5" max="100" value="100" id="sizeSlider" class="form-range" oninput="removeDivs()">
         </div> 
 
         <div class="m-2">
             <label for="sizeSlider" class="text-light">Sorting Speed</label>
-            <input type="range" min="1" max="1000" value="100" style="direction: rtl" id="speedSlider" oninput="setSpeed()">
+            <input type="range" min="1" max="1000" value="100" style="direction: rtl" id="speedSlider" class="form-range" oninput="setSpeed()">
         </div> 
 
         <select id="algoSelection" class="form-select form-select-sm w-25 m-1" onchange="removeDivs()">
