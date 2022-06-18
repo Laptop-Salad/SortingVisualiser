@@ -1,17 +1,18 @@
 // Swap two elems on UI
-function swapUI(a, b) {
-    console.log("Swapped", bars[a], bars[b]);
-    document.getElementById(a).style.height = (bars[b])+"px";
-    document.getElementById(b).style.height = (bars[a])+"px";
+function swapUI(indexA, indexB) {
+    console.log("Swapped", bars[indexA], bars[indexB]);
+    console.log("Swapped", indexA, indexB);
+    document.getElementById(indexA).style.height = (bars[indexB])+"px";
+    document.getElementById(indexB).style.height = (bars[indexA])+"px";
 }
 
 // Swap two elems
-function swap(a, b) {
-    const one = bars[a];
-    const two = bars[b];
+function swap(indexA, indexB) {
+    const one = bars[indexA];
+    const two = bars[indexB];
 
-    bars[a] = two;
-    bars[b] = one; 
+    bars[indexA] = two;
+    bars[indexB] = one; 
 } 
 
 // Delay code
@@ -29,6 +30,19 @@ async function sorted() {
     }
 }
 
+
+//To return an element to its original colour
+function returnColour(index) {
+    let elemA = document.getElementById(index);
+    elemA.classList.remove("bg-warning");
+    elemA.classList.add("bg-light");
+}
+
+// Set a bar to a certain value
+function setBar(index, value) {
+    document.getElementById(index).style.height = value+"px";
+}
+
 //Highlights two elements that are to be swapped
 function swapping(a, b) {
     let elemA = document.getElementById(a);
@@ -41,9 +55,12 @@ function swapping(a, b) {
     elemB.classList.add("bg-warning");
 }
 
-//To return an element to its original colour
-function returnColour(a) {
-    let elemA = document.getElementById(a);
-    elemA.classList.remove("bg-warning");
-    elemA.classList.add("bg-light");
+// To visualise sorting after sorting array
+async function postSet(index, val) {
+    for (let i = 0; i < index.length; i++) {
+        await sleep(speed);
+        await setBar(index[i], val[i]);
+    }
+
+    sorted();
 }

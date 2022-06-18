@@ -2,8 +2,8 @@
 let arraySize; // Keeps track of sizeSlider
 let speed; // Keeps track of speedSlider
 let bars = []; // Array of sizes of bars
-let swapA = [];
-let swapB = [];
+let setId = [];
+let setVal = [];
 const inputs = ["algoSelection", "sortBtn", "sizeSlider", "randomiseBtn"]; // Array of elements to disabled while sorting
 
 document.addEventListener("DOMContentLoaded", function(event) {
@@ -38,6 +38,12 @@ function callSort() {
         case "2":
             bubbleSort();
             break;
+        case "3":
+            mergeSort(bars, 0, bars.length - 1);
+            postSet(setId, setVal);
+            switchElems(false);
+            break;
+            
     }
 }
 

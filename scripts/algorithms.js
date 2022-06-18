@@ -64,4 +64,61 @@ async function bubbleSort() {
     switchElems(false);
 }
 
+/* Merge Sort*/
+// Merge two sections of an array
+function merge(arr, start, mid, end) {
+    let rightStart = mid + 1;
 
+    // Base case
+    if (arr[mid] <= arr[rightStart]) {
+        return;
+    }
+
+    // While there is length/space
+    while (start <= mid && rightStart <= end) {
+        // If first elem is sorted
+        if (arr[start] <= arr[rightStart]) {
+            start++;
+        // Otherwise elem isn't sorted
+        } else {
+            let val = arr[rightStart];
+            let index = rightStart;
+
+            // While there is space
+            while (index != start) {
+                setId.push(index);
+                setVal.push(arr[index-1]);
+
+                arr[index] = arr[index - 1]; // Shift elems by 1
+                index--;
+            }
+
+            setId.push(start);
+            setVal.push(val);
+
+            arr[start] = val;
+
+            // Update variables
+            start++;
+            rightStart++;
+            mid++;
+        }
+    }
+}
+
+// Split array
+function mergeSort(arr, left, right) {
+    // If there is size
+    if (left < right) {
+        let mid = left + Math.floor((right - left) / 2);
+
+        // Left half is start to mid
+        mergeSort(arr, left, mid);
+
+        // Right half is mid + 1 to right (end)
+        mergeSort(arr, mid + 1, right);
+
+        // Merge those two halves
+        merge(arr, left, mid, right);
+    }
+}
