@@ -1,3 +1,4 @@
+/// SELECTION SORT ///
 async function selectionSort() {
 
     // For each element, traverse through the bars array once
@@ -35,6 +36,7 @@ async function selectionSort() {
     switchElems(false);
 }
 
+/// BUBBLE SORT ///
 async function bubbleSort() {
     // Keep track of amount of swaps
     let swaps = -1;
@@ -70,7 +72,7 @@ async function bubbleSort() {
     switchElems(false);
 }
 
-/* Merge Sort*/
+/// MERGE SORT ///
 // Merge two sections of an array
 function merge(arr, start, mid, end) {
     let rightStart = mid + 1;
